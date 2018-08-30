@@ -2,13 +2,14 @@
   "name": "angular-core",
   "version": "0.0.0",
   "scripts": {
-    "preinstall": "rm -rf node_modules",
     "ng": "ng",
+    "preinstall": "rm -rf node_modules",
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
+    "lint:fix": "ng lint angular-core --fix && ng lint angular-core-e2e --fix",
     "e2e": "ng e2e"
   },
   "private": true,
