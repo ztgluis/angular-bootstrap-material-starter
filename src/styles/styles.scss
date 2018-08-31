@@ -1,0 +1,21 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~styles/material';
+
+/* Resets */
+* {
+    a:hover, a:active, a:focus {
+        text-decoration: none;
+    }
+
+    &:active, :focus {
+        outline: none !important;
+    }
+}
+
+label {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
