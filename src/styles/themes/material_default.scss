@@ -1,0 +1,12 @@
+/** Do NOT import this file into other SCSS files */
+
+@import '~styles/variables';
+@import '~@angular/material/theming';
+@include mat-core();
+
+$default-primary: mat-palette($mat-blue, 800, A100, 900);
+$default-accent: mat-palette($mat-deep-purple);
+$default-warn: mat-palette($mat-red, 700, 100, 900);
+
+$default-theme: mat-light-theme($default-primary, $default-accent, $default-warn);
+@include angular-material-theme($default-theme);
