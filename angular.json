@@ -24,7 +24,7 @@
                         ],
                         "styles": [
                             { "input": "src/assets/fonts/material-icons.css" },
-                            "src/styles/themes/material_default.scss",
+                            "src/styles/material.scss",
                             "src/styles/styles.scss"
                         ],
                         "scripts": []
@@ -75,7 +75,7 @@
                         "karmaConfig": "src/karma.conf.js",
                         "styles": [
                             "src/styles/styles.scss",
-                            "src/styles/themes/material_default.scss"
+                            "src/styles/material.scss"
                         ],
                         "scripts": [],
                         "assets": [

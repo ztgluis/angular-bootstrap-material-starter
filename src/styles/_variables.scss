@@ -1,12 +1,15 @@
+@import '~styles/themes/material_default';
+
+$ngc-primary: mat-color($default-primary);
+$ngc-secondary: mat-color($default-accent);
+$ngc-info: mat-color($default-primary, 100);
+$ngc-success: mat-color($default-success);
+$ngc-danger: mat-color($default-warn);
+$ngc-light: mat-color($default-neutral, 100);
+$ngc-dark: mat-color($default-neutral, 800);
+
+// $my-dark-blue: mat-color($default-success);
 /* Custom Color Palette */
-
-$mountain-green: #24ca3d;
-$cerulean-blue: #4484ce;
-$sky-blue: #328cc1;
-$prussian-blue: #0b3c5d;
-$gold: #d9b310;
-$ivory: #1d2731;
-
 /** Original Bootstrap Colors */
 // $blue: #007bff;
 // $indigo: #6610f2;
@@ -35,12 +38,12 @@ $ivory: #1d2731;
 // );
 
 /** Bootstrap overrides */
-// $theme-colors: (
-//     primary:,
-//     secondary:,
-//     dark:,
-//     light:,
-//     success:,
-//     info:,
-//     danger:,
-// );
+$theme-colors: (
+    primary: $ngc-primary,
+    secondary: $ngc-secondary,
+    info: $ngc-info,
+    success: $ngc-success,
+    danger: $ngc-danger,
+    light: $ngc-light,
+    dark: $ngc-dark,
+);
