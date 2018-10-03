@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@app/shared';
-import { PlaygroundComponent } from '@app/pages/playground.component';
+import { PlaygroundComponent } from './playground.component';
 
 @NgModule({
     imports: [
