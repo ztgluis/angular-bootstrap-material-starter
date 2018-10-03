@@ -1,5 +1,5 @@
 {
-    "name": "angular-core",
+    "name": "angular-bootstrap-material-starter",
     "version": "1.0.0",
     "scripts": {
         "ng": "ng",
@@ -10,7 +10,7 @@
         "test": "ng test --code-coverage --browsers ChromeHeadless --watch=false",
         "test:dev": "ng test --code-coverage",
         "lint": "ng lint",
-        "lint:fix": "ng lint angular-core --fix && ng lint angular-core-e2e --fix",
+        "lint:fix": "ng lint angular-bootstrap-material-starter --fix && ng lint angular-bootstrap-material-starter-e2e --fix",
         "e2e": "ng e2e"
     },
     "private": true,
