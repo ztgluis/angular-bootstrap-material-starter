@@ -1,2 +1,2 @@
-export * from './playground.component';
-export * from './playground.module';
+export * from './home';
+export * from './playground';
