@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-    selector: 'ngc-playground',
+    selector: 'ngbm-playground',
     templateUrl: './playground.component.html',
     styleUrls: ['./playground.component.scss']
 })
