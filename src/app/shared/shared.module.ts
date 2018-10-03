@@ -52,12 +52,15 @@ export const SharedModules = [
     MatToolbarModule,
     MatTooltipModule,
     MatGridListModule
-]
+];
 
 @NgModule({
     imports: [
         ...SharedModules
     ],
-    declarations: []
+    declarations: [],
+    exports: [
+        ...SharedModules
+    ]
 })
 export class SharedModule { }
