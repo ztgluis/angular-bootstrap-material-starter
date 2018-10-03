@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
         RouterModule.forRoot([
             {
                 path: '',
-                loadChildren: './pages/playground.module#PlaygroundModule'
+                loadChildren: './pages/home/home.module#HomeModule'
             }
         ])
     ],
