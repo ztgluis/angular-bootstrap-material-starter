@@ -8,9 +8,20 @@ $ngbm-danger: mat-color($default-warn);
 $ngbm-light: mat-color($default-neutral, 100);
 $ngbm-dark: mat-color($default-neutral, 800);
 
-// $my-dark-blue: mat-color($default-success);
-/* Custom Color Palette */
-/** Original Bootstrap Colors */
+/* Bootstrap overrides */
+$theme-colors: (
+    primary: $ngbm-primary,
+    secondary: $ngbm-secondary,
+    info: $ngbm-info,
+    success: $ngbm-success,
+    danger: $ngbm-danger,
+    light: $ngbm-light,
+    dark: $ngbm-dark,
+);
+
+/* For Reference */
+
+/* Original Bootstrap Colors */
 // $blue: #007bff;
 // $indigo: #6610f2;
 // $purple: #6f42c1;
@@ -36,14 +47,3 @@ $ngbm-dark: mat-color($default-neutral, 800);
 //     info: $teal,
 //     danger: $red,
 // );
-
-/** Bootstrap overrides */
-$theme-colors: (
-    primary: $ngbm-primary,
-    secondary: $ngbm-secondary,
-    info: $ngbm-info,
-    success: $ngbm-success,
-    danger: $ngbm-danger,
-    light: $ngbm-light,
-    dark: $ngbm-dark,
-);
