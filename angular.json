@@ -22,14 +22,23 @@
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "src/tsconfig.app.json",
+                        "extractCss": true,
                         "assets": [
                             "src/favicon.ico",
                             "src/assets"
                         ],
                         "styles": [
+                            "src/styles/global.scss",
                             { "input": "src/assets/fonts/material-icons.css" },
-                            "src/styles/material.scss",
-                            "src/styles/styles.scss"
+                            {
+                                "input": "src/styles//theming/material-default.scss",
+                                "bundleName": "material-default-theme"
+                            },
+                            {
+                                "input": "src/styles/theming/material-dark.scss",
+                                "lazy": true,
+                                "bundleName": "material-dark-theme"
+                            }
                         ],
                         "scripts": []
                     },
@@ -79,7 +88,7 @@
                         "karmaConfig": "src/karma.conf.js",
                         "sourceMap": true,
                         "styles": [
-                            "src/styles/styles.scss",
+                            "src/styles/global.scss",
                             "src/styles/material.scss"
                         ],
                         "scripts": [],
