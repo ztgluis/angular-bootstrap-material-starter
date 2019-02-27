@@ -1,29 +1,36 @@
 /**
- * First: override bootstrap default colors / theme palette
+ * Override bootstrap default colors / theme palette
  */
 
 /* Material Theme */
 $ngbm-primary: mat-color($theme-primary);
-$ngbm-secondary: mat-color($theme-accent);
+$ngbm-accent: mat-color($theme-accent);
 $ngbm-info: mat-color($theme-primary, 100);
 $ngbm-success: mat-color($theme-success);
-$ngbm-danger: mat-color($theme-warn);
+$ngbm-warn: mat-color($theme-warn);
 $ngbm-light: mat-color($theme-neutral, 100);
 $ngbm-dark: mat-color($theme-neutral, 800);
+$foreground: map-get($theme, foreground);
+$background: map-get($theme, background);
+$ngbm-foreground: mat-color($foreground, text);
+$ngbm-background: mat-color($background, card);
 
 /* Bootstrap overrides */
 $theme-colors: (
     primary: $ngbm-primary,
-    secondary: $ngbm-secondary,
+    secondary: $ngbm-accent, accent: $ngbm-accent,
     info: $ngbm-info,
     success: $ngbm-success,
-    danger: $ngbm-danger,
+    danger: $ngbm-warn, warn: $ngbm-warn,
     light: $ngbm-light,
     dark: $ngbm-dark,
+    foreground: $ngbm-foreground,
+    background: $ngbm-background
+    // material naming
 );
 
 /**
- * Second: @import required bootstrap files
+ * @import required bootstrap files
  * and any desired optional ones
  */
 
