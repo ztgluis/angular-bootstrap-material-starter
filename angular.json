@@ -31,13 +31,13 @@
                             "src/styles/global.scss",
                             { "input": "src/assets/fonts/material-icons.css" },
                             {
-                                "input": "src/styles//theming/material-default.scss",
-                                "bundleName": "material-default-theme"
+                                "input": "src/styles//theming/default-theme.scss",
+                                "bundleName": "default-theme"
                             },
                             {
-                                "input": "src/styles/theming/material-dark.scss",
+                                "input": "src/styles/theming/dark-theme.scss",
                                 "lazy": true,
-                                "bundleName": "material-dark-theme"
+                                "bundleName": "dark-theme"
                             }
                         ],
                         "scripts": []
