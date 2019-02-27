@@ -3,16 +3,16 @@
  * This file generates the css output needed for themes
  */
 
- /* Import all of the component.theme files here */
+/* Imports bootstrap and generates the styles */
+@import '~styles/theming/bootstrap';
+
+/* Import all of the component.theme files here */
 @import '~app/pages/home/home.component.theme';
 
 /* Mixin that groups all component.theme files */
 @mixin custom-components-theme($theme) {
     @include home-component-theme($theme);
 }
-
-/* Imports bootstrap and generates the styles */
-@import '~styles/theming/bootstrap';
 
 /* Generate the material styles */
 @include mat-core();
