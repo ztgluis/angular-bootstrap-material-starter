@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '@app/shared/services/theme.service';
 
 @Component({
     selector: 'ngbm-home',
@@ -7,25 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-    constructor() { }
-
-    defaultTheme = true;
+    constructor(private themeService: ThemeService) { }
 
     switchTheme() {
-        let theme;
-
-        if (this.defaultTheme) {
-            theme = 'material-dark-theme.css';
-        } else {
-            theme = 'material-default-theme.css';
-        }
-
-        this.defaultTheme = !this.defaultTheme;
-
-        window.localStorage.setItem('theme', JSON.stringify(theme));
-        let link = document.querySelector('link[href*="material-"]');
-
-        link['href'] = theme;
+        this.themeService.switchTheme();
     }
 
     ngOnInit() {
