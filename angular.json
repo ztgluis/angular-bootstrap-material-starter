@@ -23,13 +23,10 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "src/tsconfig.app.json",
                         "extractCss": true,
-                        "assets": [
-                            "src/favicon.ico",
-                            "src/assets"
-                        ],
+                        "assets": ["src/favicon.ico", "src/assets"],
                         "styles": [
                             "src/styles/global.scss",
-                            { "input": "src/assets/fonts/material-icons.css" },
+                            "src/assets/fonts/material-icons.css",
                             {
                                 "input": "src/styles//theming/default-theme.scss",
                                 "bundleName": "default-theme"
@@ -51,7 +48,6 @@
                                 }
                             ],
                             "optimization": true,
-                            "outputHashing": "all",
                             "sourceMap": false,
                             "extractCss": true,
                             "namedChunks": false,
@@ -87,15 +83,9 @@
                         "tsConfig": "src/tsconfig.spec.json",
                         "karmaConfig": "src/karma.conf.js",
                         "sourceMap": true,
-                        "styles": [
-                            "src/styles/global.scss",
-                            "src/styles/material.scss"
-                        ],
+                        "styles": ["src/styles/global.scss"],
                         "scripts": [],
-                        "assets": [
-                            "src/favicon.ico",
-                            "src/assets"
-                        ]
+                        "assets": ["src/favicon.ico", "src/assets"]
                     }
                 },
                 "lint": {
@@ -105,9 +95,7 @@
                             "src/tsconfig.app.json",
                             "src/tsconfig.spec.json"
                         ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
@@ -132,9 +120,7 @@
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": "e2e/tsconfig.e2e.json",
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
