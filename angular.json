@@ -28,7 +28,7 @@
                             "src/styles/global.scss",
                             "src/assets/fonts/material-icons.css",
                             {
-                                "input": "src/styles//theming/default-theme.scss",
+                                "input": "src/styles/theming/default-theme.scss",
                                 "bundleName": "default-theme"
                             },
                             {
