@@ -1,20 +1,11 @@
 /**
- * All themes need to import this file at the end
+ * All theme files need to import this file at the end
  * This file generates the css output needed for themes
  */
 
 /* Imports bootstrap and generates the styles */
 @import '~styles/theming/bootstrap';
 
-/* Import all of the component.theme files here */
-@import '~app/pages/home/home.component.theme';
-
-/* Mixin that groups all component.theme files */
-@mixin custom-components-theme($theme) {
-    @include home-component-theme($theme);
-}
-
 /* Generate the material styles */
 @include mat-core();
 @include angular-material-theme($theme);
-@include custom-components-theme($theme);
