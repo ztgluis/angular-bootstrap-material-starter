@@ -4,8 +4,7 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class ThemeService {
-
-    constructor() { }
+    constructor() {}
 
     defaultTheme = true;
 
@@ -21,9 +20,8 @@ export class ThemeService {
         this.defaultTheme = !this.defaultTheme;
 
         window.localStorage.setItem('theme', JSON.stringify(theme));
-        let link = document.querySelector('link[href*="-theme"]');
+        const link = document.querySelector('link[href*="-theme"]');
 
         link['href'] = theme;
     }
-
 }
