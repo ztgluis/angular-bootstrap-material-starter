@@ -7,10 +7,14 @@ import { RouterModule } from '@angular/router';
             {
                 path: '',
                 loadChildren: './pages/home/home.module#HomeModule'
+            },
+            {
+                path: 'playground',
+                loadChildren:
+                    './pages/playground/playground.module#PlaygroundModule'
             }
         ])
     ],
     exports: [RouterModule]
 })
-
-export class RoutingModule { }
+export class RoutingModule {}
