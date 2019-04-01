@@ -7,16 +7,11 @@ import { FormControl, FormGroup } from '@angular/forms';
     styleUrls: ['./playground.component.scss']
 })
 export class PlaygroundComponent {
-
     group = new FormGroup({
-        fontSize: new FormControl(''),
+        fontSize: new FormControl('')
     });
 
-    matColors = [
-        'primary',
-        'accent',
-        'warn'
-    ];
+    matColors = ['primary', 'accent', 'warn'];
 
     twbsColors = [
         'primary',
@@ -24,7 +19,7 @@ export class PlaygroundComponent {
         'info',
         'success',
         'danger',
-        'dark'
+        'dark',
+        'light'
     ];
-
 }

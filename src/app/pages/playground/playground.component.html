@@ -5,20 +5,35 @@
     <mat-sidenav-content class="bg-white">
         <div class="row">
             <div class="col-4" *ngFor="let color of matColors">
-                <mat-toolbar [color]="color" (click)="sidenav.toggle(); selectedColor=color">{{ color | uppercase }}</mat-toolbar>
+                <mat-toolbar
+                    [color]="color"
+                    (click)="sidenav.toggle(); selectedColor = color"
+                >
+                    {{ color | uppercase }}
+                </mat-toolbar>
 
                 <form [formGroup]="group">
                     <mat-form-field [color]="color">
-                        <input matInput type="number" placeholder="Font size (px)" formControlName="fontSize" min="10">
+                        <input
+                            matInput
+                            type="number"
+                            placeholder="Font size (px)"
+                            formControlName="fontSize"
+                            min="10"
+                        />
                         <mat-error>Min size: 10px</mat-error>
                     </mat-form-field>
                 </form>
 
                 <div class="m-3">
                     <button mat-button [color]="color">Button</button>
-                    <button mat-raised-button [color]="color">RaisedButton</button>
+                    <button mat-raised-button [color]="color">
+                        RaisedButton
+                    </button>
                     <button mat-flat-button [color]="color">FlatButton</button>
-                    <button mat-stroked-button [color]="color">StrokedButton</button>
+                    <button mat-stroked-button [color]="color">
+                        StrokedButton
+                    </button>
                     <button mat-icon-button [color]="color">
                         <mat-icon>check</mat-icon>
                     </button>
@@ -31,20 +46,45 @@
                 </div>
                 <div class="m-3">
                     <mat-tab-group [color]="color">
-                        <mat-tab label="First"> Content 1 </mat-tab>
-                        <mat-tab label="Second"> Content 2 </mat-tab>
+                        <mat-tab label="First">Content 1</mat-tab>
+                        <mat-tab label="Second">Content 2</mat-tab>
                     </mat-tab-group>
-                    <mat-tab-group *ngFor="let color2 of matColors" [color]="color2" [backgroundColor]="color">
-                        <mat-tab label="First"> Content 1 </mat-tab>
-                        <mat-tab label="Second"> Content 2 </mat-tab>
+                    <mat-tab-group
+                        *ngFor="let color2 of matColors"
+                        [color]="color2"
+                        [backgroundColor]="color"
+                    >
+                        <mat-tab label="First">Content 1</mat-tab>
+                        <mat-tab label="Second">Content 2</mat-tab>
                     </mat-tab-group>
                 </div>
                 <div class="m-3">
-                    <span class="mx-3" matBadge="4" matBadgeOverlap="false" [matBadgeColor]="color">Text</span>
-                    <button mat-button class="mx-3" [color]="color" matBadge="8" [matBadgeColor]="color">
+                    <span
+                        class="mx-3"
+                        matBadge="4"
+                        matBadgeOverlap="false"
+                        [matBadgeColor]="color"
+                    >
+                        Text
+                    </span>
+                    <button
+                        mat-button
+                        class="mx-3"
+                        [color]="color"
+                        matBadge="8"
+                        [matBadgeColor]="color"
+                    >
                         Button
                     </button>
-                    <mat-icon class="mx-3" [color]="color" matBadge="15" matBadgeOverlap="false" [matBadgeColor]="color">home</mat-icon>
+                    <mat-icon
+                        class="mx-3"
+                        [color]="color"
+                        matBadge="15"
+                        matBadgeOverlap="false"
+                        [matBadgeColor]="color"
+                    >
+                        home
+                    </mat-icon>
                 </div>
 
                 <mat-chip-list>
@@ -53,23 +93,27 @@
                 </mat-chip-list>
 
                 <mat-spinner [color]="color"></mat-spinner>
-
             </div>
         </div>
 
         <div>
             <p>Material -Bootstrap</p>
-            <button mat-raised-button class="bg-primary text-white">Hi</button>
-            <button mat-raised-button class="bg-secondary text-white">Hi</button>
-            <button mat-raised-button class="bg-info text-white">Hi</button>
-            <button mat-raised-button class="bg-dark text-white">Hi</button>
-            <button mat-raised-button class="bg-light text-black">Hi</button>
-            <button mat-raised-button class="bg-danger text-white">Hi</button>
+            <button
+                mat-raised-button
+                *ngFor="let color of twbsColors"
+                [ngClass]="'bg-' + color"
+            >
+                Hi
+            </button>
 
             <div class="row">
                 <div class="col-2" *ngFor="let color of twbsColors">
-                    <mat-toolbar class="bg-{{color}} text-white" (click)="sidenav.toggle(); selectedColor=color">{{ color
-                        | uppercase }}</mat-toolbar>
+                    <mat-toolbar
+                        class="bg-{{ color }}"
+                        (click)="sidenav.toggle(); selectedColor = color"
+                    >
+                        {{ color | uppercase }}
+                    </mat-toolbar>
 
                     <!-- <form [formGroup]="group">
                             <mat-form-field [ngClass]="'text-' + color">
@@ -79,17 +123,25 @@
                         </form> -->
 
                     <div class="m-3">
-                        <button mat-button [ngClass]="'text-' + color">Button</button>
-                        <button mat-raised-button [ngClass]="'bg-' + color" class="text-white">RaisedButton</button>
-                        <button mat-flat-button [ngClass]="'bg-' + color" class="text-white">FlatButton</button>
-                        <button mat-stroked-button [ngClass]="'text-' + color">StrokedButton</button>
+                        <button mat-button [ngClass]="'text-' + color">
+                            Button
+                        </button>
+                        <button mat-raised-button [ngClass]="'bg-' + color">
+                            RaisedButton
+                        </button>
+                        <button mat-flat-button [ngClass]="'bg-' + color">
+                            FlatButton
+                        </button>
+                        <button mat-stroked-button [ngClass]="'text-' + color">
+                            StrokedButton
+                        </button>
                         <button mat-icon-button [ngClass]="'text-' + color">
                             <mat-icon>check</mat-icon>
                         </button>
-                        <button mat-fab [ngClass]="'bg-' + color" class="text-white">
+                        <button mat-fab [ngClass]="'bg-' + color">
                             <mat-icon>check</mat-icon>
                         </button>
-                        <button mat-mini-fab [ngClass]="'bg-' + color" class="text-white">
+                        <button mat-mini-fab [ngClass]="'bg-' + color">
                             <mat-icon>check</mat-icon>
                         </button>
                     </div>
@@ -112,16 +164,15 @@
                         </div> -->
 
                     <mat-chip-list>
-                        <mat-chip [ngClass]="'bg-' + color" class="text-white" selected>Chip</mat-chip>
+                        <mat-chip [ngClass]="'bg-' + color" selected>
+                            Chip
+                        </mat-chip>
                         <mat-chip>Chip</mat-chip>
                     </mat-chip-list>
 
                     <!-- <mat-spinner [ngClass]="'text-' + color"></mat-spinner> -->
-
                 </div>
             </div>
-
         </div>
-
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,20 +1,25 @@
-/**
- * Override bootstrap default colors / theme palette
- */
+/* Map Material Theme palettes to use with Bootstrap */
+$theme-primary: map-get($theme, primary);
+$theme-accent: map-get($theme, accent);
+$theme-warn: map-get($theme, warn);
 $theme-foreground: map-get($theme, foreground);
 $theme-background: map-get($theme, background);
-/* Material Theme */
-$ngbm-primary: mat-color($theme-primary);
-$ngbm-accent: mat-color($theme-accent);
-$ngbm-info: mat-color($theme-primary, 100);
-$ngbm-success: mat-color($theme-success);
-$ngbm-warn: mat-color($theme-warn);
-$ngbm-light: mat-color($theme-neutral, 100);
-$ngbm-dark: mat-color($theme-neutral, 800);
+
+/* Map specific colors to application variables */
+$ngbm-primary: mat-color($primary-palette);
+$ngbm-accent: mat-color($accent-palette);
+$ngbm-info: mat-color($info-palette);
+$ngbm-success: mat-color($success-palette);
+$ngbm-warn: mat-color($warn-palette);
+$ngbm-light: mat-color($light-palette);
+$ngbm-dark: mat-color($neutral-palette);
 $ngbm-foreground: mat-color($theme-foreground, text);
 $ngbm-background: mat-color($theme-background, card);
 
-/* Bootstrap overrides */
+/**
+ * Map used by bootstrap to set theming colors
+ * Override default colors with Material theme
+ */
 $theme-colors: (
     primary: $ngbm-primary,
     secondary: $ngbm-accent,
@@ -30,16 +35,27 @@ $theme-colors: (
 );
 
 /**
- * @import required bootstrap files
- * and any desired optional ones
+ * Map of Material palettes
+ * Will be used to customize bootstrap generated classes
  */
+$theme-palettes: (
+    primary: $primary-palette,
+    secondary: $accent-palette,
+    accent: $accent-palette,
+    info: $info-palette,
+    success: $success-palette,
+    danger: $warn-palette,
+    warn: $warn-palette,
+    light: $light-palette,
+    dark: $neutral-palette
+);
 
-/* Required */
+/* Required Bootstrap imports */
 @import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/variables';
 @import 'node_modules/bootstrap/scss/mixins';
 
-/* Optional */
+/* Optional Bootstrap imports */
 // @import "node_modules/bootstrap/scss/root";
 @import 'node_modules/bootstrap/scss/reboot';
 @import 'node_modules/bootstrap/scss/type';
@@ -72,3 +88,27 @@ $theme-colors: (
 // @import "node_modules/bootstrap/scss/carousel";
 @import 'node_modules/bootstrap/scss/utilities';
 // @import "node_modules/bootstrap/scss/print";
+
+/**
+ * Important to run this after the Bootstrap @imports
+ * Adds contrasting text to all .bg-${color} classes
+ */
+.bg {
+    @each $color, $palette in $theme-palettes {
+        &-#{$color} {
+            color: mat-color($palette, 'default-contrast') !important;
+        }
+    }
+}
+
+/**
+ * Allows to set default themable text
+ */
+.text-default {
+    color: $ngbm-foreground !important;
+}
+
+.bg-default {
+    background: $ngbm-background !important;
+    color: $ngbm-foreground !important;
+}
