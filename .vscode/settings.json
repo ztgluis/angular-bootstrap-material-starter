@@ -4,6 +4,5 @@
         "source.fixAll.tslint": true,
         "source.organizeImports": true
     },
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+    "editor.formatOnSave": true
 }
