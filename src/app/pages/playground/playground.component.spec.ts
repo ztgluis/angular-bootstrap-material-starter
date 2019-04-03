@@ -1,7 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PlaygroundComponent } from './playground.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PlaygroundComponent } from './playground.component';
 
 describe('PlaygroundComponent', () => {
     let component: PlaygroundComponent;
@@ -11,8 +10,7 @@ describe('PlaygroundComponent', () => {
         TestBed.configureTestingModule({
             declarations: [PlaygroundComponent],
             schemas: [NO_ERRORS_SCHEMA]
-        })
-            .compileComponents();
+        }).compileComponents();
     }));
 
     beforeEach(() => {
@@ -22,6 +20,6 @@ describe('PlaygroundComponent', () => {
     });
 
     it('should create', () => {
-        expect(component).toBeTruthy();
+        expect(component).toBeDefined();
     });
 });

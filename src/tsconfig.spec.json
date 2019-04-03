@@ -3,17 +3,8 @@
     "compilerOptions": {
         "baseUrl": "",
         "outDir": "../out-tsc/spec",
-        "types": [
-            "jasmine",
-            "node"
-        ]
+        "types": ["jest", "node"]
     },
-    "files": [
-        "test.ts",
-        "polyfills.ts"
-    ],
-    "include": [
-        "**/*.spec.ts",
-        "**/*.d.ts"
-    ]
+    "files": ["polyfills.ts"],
+    "include": ["**/*.spec.ts", "**/*.d.ts"]
 }
