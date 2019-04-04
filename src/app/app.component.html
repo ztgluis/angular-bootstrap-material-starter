@@ -3,21 +3,29 @@
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()"
+        (click)="toggleSidenavText()"
     >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
     <span>angular-bootstrap-material-starter</span>
 </mat-toolbar>
-<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav">
+<mat-sidenav-container class="sidenav-container" autosize>
+    <mat-sidenav class="sidenav" mode="side" opened role="navigation">
         <mat-nav-list>
-            <a mat-list-item href="#">Link 1</a>
-            <a mat-list-item href="#">Link 2</a>
-            <a mat-list-item href="#">Link 3</a>
+            <mat-list-item
+                *ngFor="let link of navLinks"
+                [routerLink]="link.path"
+                [routerLinkActiveOptions]="{ exact: true }"
+                routerLinkActive="bg-accent"
+            >
+                <mat-icon matListIcon>{{ link.icon }}</mat-icon>
+                <h3 matLine *ngIf="displaySidenavText">{{ link.name }}</h3>
+            </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
-        <router-outlet></router-outlet>
+    <mat-sidenav-content role="main">
+        <div class="m-3">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

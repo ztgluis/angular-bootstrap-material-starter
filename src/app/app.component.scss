@@ -1,12 +1,19 @@
+// Display sidenav as full height regardless of content
 .sidenav-container {
     height: 100%;
 }
 
-.sidenav {
-    width: 200px;
+// Remove gap between top toolbar and nav menu items
+.mat-nav-list {
+    padding-top: 0;
+
+    // Balance text position in sidenav
+    h3 {
+        margin-right: 4px;
+    }
 }
 
-// .mat-toolbar.mat-primary {
-//     position: sticky;
-//     top: 0;
-// }
+// Properly align menu icon with nav icons
+.mat-toolbar-single-row {
+    padding: 0 13px;
+}
