@@ -14,7 +14,7 @@
         "lint:fix": "ng lint angular-bootstrap-material-starter --fix",
         "e2e": "ng e2e",
         "prettier": "pretty-quick --staged",
-        "gh-pages": "ng build --prod --output-path docs"
+        "gh-pages": "ng build --prod --base-href /angular-bootstrap-material-starter/ && npx angular-cli-ghpages"
     },
     "husky": {
         "hooks": {
@@ -49,6 +49,7 @@
         "@types/jasmine": "3.3.9",
         "@types/jasminewd2": "2.0.6",
         "@types/node": "11.9.5",
+        "angular-cli-ghpages": "0.5.3",
         "codelyzer": "4.5.0",
         "husky": "1.3.1",
         "jasmine-core": "3.3.0",
