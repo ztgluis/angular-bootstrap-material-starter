@@ -13,12 +13,13 @@
         "lint": "ng lint angular-bootstrap-material-starter",
         "lint:fix": "ng lint angular-bootstrap-material-starter --fix",
         "e2e": "ng e2e",
-        "prettier": "pretty-quick --staged"
+        "prettier": "pretty-quick --staged",
+        "gh-pages": "ng build --prod --output-path docs --base-href /angular-bootstrap-material-starter/"
     },
     "husky": {
         "hooks": {
             "pre-commit": "npm run prettier",
-            "pre-push": "npm run lint && npm run test"
+            "pre-push": "npm run lint && npm run test && npm run gh-pages"
         }
     },
     "dependencies": {
