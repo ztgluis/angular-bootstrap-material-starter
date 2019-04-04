@@ -14,7 +14,7 @@
         "lint:fix": "ng lint angular-bootstrap-material-starter --fix",
         "e2e": "ng e2e",
         "prettier": "pretty-quick --staged",
-        "gh-pages": "ng build --prod --output-path docs --base-href /angular-bootstrap-material-starter/"
+        "gh-pages": "ng build --prod --output-path docs"
     },
     "husky": {
         "hooks": {
