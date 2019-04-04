@@ -8,6 +8,6 @@ describe('SharedModule', () => {
     });
 
     it('should create an instance', () => {
-        expect(sharedModule).toBeDefined();
+        expect(sharedModule).toBeTruthy();
     });
 });

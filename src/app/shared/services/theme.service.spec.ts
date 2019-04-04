@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+
 import { ThemeService } from './theme.service';
 
 describe('ThemeService', () => {
@@ -6,6 +7,6 @@ describe('ThemeService', () => {
 
     it('should be created', () => {
         const service: ThemeService = TestBed.get(ThemeService);
-        expect(service).toBeDefined();
+        expect(service).toBeTruthy();
     });
 });

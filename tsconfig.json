@@ -9,10 +9,8 @@
         "module": "es2015",
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
-        "esModuleInterop": true,
         "experimentalDecorators": true,
         "target": "es5",
-        "types": ["jest"],
         "paths": {
             "@app/*": ["app/*"]
         },

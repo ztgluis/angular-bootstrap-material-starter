@@ -76,12 +76,16 @@
                     }
                 },
                 "test": {
-                    "builder": "@angular-builders/jest:run",
+                    "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "no-cache": true,
-                        "reports": ["jest-junit"],
-                        "coverage": true,
-                        "runInBand": true
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.spec.json",
+                        "karmaConfig": "src/karma.conf.js",
+                        "sourceMap": true,
+                        "styles": ["src/styles/global.scss"],
+                        "scripts": [],
+                        "assets": ["src/favicon.ico", "src/assets"]
                     }
                 },
                 "lint": {
