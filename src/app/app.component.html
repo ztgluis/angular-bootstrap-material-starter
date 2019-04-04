@@ -1,34 +1,45 @@
-<mat-toolbar color="primary">
-    <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="toggleSidenavText()"
-    >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-    </button>
-    <span>angular-bootstrap-material-starter</span>
-    <button mat-icon-button class="ml-auto" (click)="switchTheme()">
-        <mat-icon>color_lens</mat-icon>
-    </button>
-</mat-toolbar>
-<mat-sidenav-container class="sidenav-container" autosize>
-    <mat-sidenav class="sidenav" mode="side" opened role="navigation">
-        <mat-nav-list>
-            <mat-list-item
-                *ngFor="let link of navLinks"
-                [routerLink]="link.path"
-                [routerLinkActiveOptions]="{ exact: true }"
-                routerLinkActive="bg-accent"
-            >
-                <mat-icon matListIcon>{{ link.icon }}</mat-icon>
-                <h3 matLine *ngIf="displaySidenavText">{{ link.name }}</h3>
-            </mat-list-item>
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content role="main">
-        <div class="m-3">
-            <router-outlet></router-outlet>
+<div class="wrapper">
+    <mat-toolbar color="primary">
+        <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="toggleSidenavText()"
+        >
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>angular-bootstrap-material-starter</span>
+        <button mat-icon-button class="ml-auto" (click)="switchTheme()">
+            <mat-icon>color_lens</mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-sidenav-container class="sidenav-container" autosize>
+        <mat-sidenav class="sidenav" mode="side" opened>
+            <mat-nav-list>
+                <mat-list-item
+                    *ngFor="let link of navLinks"
+                    [routerLink]="link.path"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    routerLinkActive="bg-accent"
+                >
+                    <mat-icon matListIcon>{{ link.icon }}</mat-icon>
+                    <h3 matLine *ngIf="displaySidenavText">{{ link.name }}</h3>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content role="main">
+            <div class="m-3">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    <mat-toolbar color="primary">
+        <div class="lead m-auto">
+            <span class="d-flex align-items-center">
+                Built with
+                <mat-icon class="mx-1 text-warn">favorite</mat-icon>
+                by Skynet
+            </span>
         </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+    </mat-toolbar>
+</div>

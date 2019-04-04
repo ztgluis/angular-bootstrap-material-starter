@@ -1,6 +1,13 @@
 // Display sidenav as full height regardless of content
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
 .sidenav-container {
-    height: 100%;
+    flex: 1;
+    // height: calc(100% - 64px); // 64px for each toolbar (header and footer)
 }
 
 // Remove gap between top toolbar and nav menu items
