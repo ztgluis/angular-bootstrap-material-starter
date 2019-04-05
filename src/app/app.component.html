@@ -32,9 +32,9 @@
             </ng-container>
 
             <!-- Settings Menu -->
-            <button mat-icon-button [matMenuTriggerFor]="appMenu">
+            <button mat-icon-button [matMenuTriggerFor]="settingsMenu">
                 <mat-icon>settings</mat-icon>
-                <mat-menu #appMenu="matMenu">
+                <mat-menu #settingsMenu="matMenu">
                     <ng-template matMenuContent>
                         <button mat-menu-item (click)="switchLayout()">
                             <mat-icon>web_asset</mat-icon>
