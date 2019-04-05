@@ -6,15 +6,21 @@ const Themes = {
     dark: 'dark-theme.css'
 };
 
+const StorageKeys = {
+    theme: 'theme',
+    layout: 'sidenav-layout'
+};
+
 @Injectable({
     providedIn: 'root'
 })
-export class ThemeService {
+export class SettingsService {
     constructor(public storageService: StorageService) {
         this.setTheme();
     }
 
-    selectedTheme = this.storageService.get('theme') || Themes.default;
+    selectedTheme =
+        this.storageService.get(StorageKeys.theme) || Themes.default;
 
     switchTheme() {
         switch (this.selectedTheme) {
@@ -30,6 +36,14 @@ export class ThemeService {
     setTheme(theme = this.selectedTheme) {
         const link = document.querySelector('link[href*="-theme"]');
         link['href'] = theme;
-        this.storageService.set('theme', theme);
+        this.storageService.set(StorageKeys.theme, theme);
+    }
+
+    setLayout(isDefault) {
+        this.storageService.set(StorageKeys.layout, isDefault);
+    }
+
+    getLayout() {
+        return this.storageService.get(StorageKeys.layout);
     }
 }

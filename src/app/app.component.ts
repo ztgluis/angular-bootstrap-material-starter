@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ThemeService } from '@app/shared/services/theme.service';
+import { SettingsService } from '@app/shared/services/settings.service';
 
 @Component({
     selector: 'ngbm-root',
@@ -7,8 +7,12 @@ import { ThemeService } from '@app/shared/services/theme.service';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    constructor(private themeService: ThemeService) {}
-    displaySidenavText = false;
+    constructor(private settingsService: SettingsService) {}
+
+    sidenavLayout = this.settingsService.getLayout();
+
+    expandedSidenav = false;
+
     navLinks = [
         {
             name: 'Home',
@@ -22,11 +26,16 @@ export class AppComponent {
         }
     ];
 
+    switchLayout() {
+        this.sidenavLayout = !this.sidenavLayout;
+        this.settingsService.setLayout(this.sidenavLayout);
+    }
+
     switchTheme() {
-        this.themeService.switchTheme();
+        this.settingsService.switchTheme();
     }
 
     toggleSidenavText() {
-        this.displaySidenavText = !this.displaySidenavText;
+        this.expandedSidenav = !this.expandedSidenav;
     }
 }
