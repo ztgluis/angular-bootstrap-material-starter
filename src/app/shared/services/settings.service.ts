@@ -35,7 +35,9 @@ export class SettingsService {
 
     setTheme(theme = this.selectedTheme) {
         const link = document.querySelector('link[href*="-theme"]');
-        link['href'] = theme;
+        if (link) {
+            link['href'] = theme;
+        }
         this.storageService.set(StorageKeys.theme, theme);
     }
 
