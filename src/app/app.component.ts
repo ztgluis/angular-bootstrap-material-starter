@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { getAppNav } from '@app/app.routing';
 import { SettingsService } from '@app/shared/services/settings.service';
-
 @Component({
     selector: 'ngbm-root',
     templateUrl: './app.component.html',
@@ -13,18 +13,7 @@ export class AppComponent {
 
     expandedSidenav = false;
 
-    navLinks = [
-        {
-            name: 'Home',
-            icon: 'home',
-            path: ''
-        },
-        {
-            name: 'Playground',
-            icon: 'local_play',
-            path: 'playground'
-        }
-    ];
+    navLinks = getAppNav();
 
     switchLayout() {
         this.sidenavLayout = !this.sidenavLayout;
