@@ -13,9 +13,10 @@ export class StorageService {
         }
     }
 
-    set(key: string, input: any): void {
+    set(key: string, input: any): string {
         const value = typeof input === 'string' ? input : JSON.stringify(input);
         localStorage.setItem(key, value);
+        return value;
     }
 
     remove(key: string): void {
