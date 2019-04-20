@@ -8,16 +8,21 @@ describe('SettingsService', () => {
         dark: 'dark-theme.css'
     };
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({});
-        service = TestBed.get(SettingsService);
-    });
-
     beforeAll(() => {
+        const theme = document.querySelector('link[href*="-theme"]');
+        if (theme) {
+            theme.remove();
+        }
         const link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = Themes.default;
         document.head.appendChild(link);
+    });
+
+    beforeEach(() => {
+        TestBed.configureTestingModule({});
+        service = TestBed.get(SettingsService);
+        service.setTheme(Themes.default);
     });
 
     it('should be created', () => {
