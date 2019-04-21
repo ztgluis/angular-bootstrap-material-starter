@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
 
-const Themes = {
+export const Themes = {
     default: 'default-theme.css',
     dark: 'dark-theme.css'
 };
 
-const StorageKeys = {
+export const StorageKeys = {
     theme: 'theme',
     layout: 'sidenav-layout'
 };
@@ -15,8 +16,11 @@ const StorageKeys = {
     providedIn: 'root'
 })
 export class SettingsService {
-    constructor(public storageService: StorageService) {
-        this.setTheme();
+    constructor(
+        @Inject(DOCUMENT) private document: HTMLDocument,
+        public storageService: StorageService
+    ) {
+        this.setTheme(this.selectedTheme);
     }
 
     selectedTheme =
@@ -25,16 +29,16 @@ export class SettingsService {
     switchTheme() {
         switch (this.selectedTheme) {
             case Themes.default:
-                this.selectedTheme = Themes.dark;
+                this.setTheme(Themes.dark);
                 break;
             default:
-                this.selectedTheme = Themes.default;
+                this.setTheme(Themes.default);
         }
-        this.setTheme();
     }
 
-    setTheme(theme = this.selectedTheme) {
-        const link = document.querySelector('link[href*="-theme"]');
+    setTheme(theme) {
+        this.selectedTheme = theme;
+        const link = this.document.querySelector('link[href*="-theme"]');
         if (link) {
             link['href'] = theme;
         }
