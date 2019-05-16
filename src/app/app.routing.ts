@@ -36,7 +36,8 @@ export const appRoutes: CustomRoute[] = [
  * Iterates over module routes and returns navigation menu items
  * @param routes Array of `CustomRoute` objects to generate nav menus for.
  */
-export function getAppNav(routes: CustomRoute[] = appRoutes): NavItem[] {
+export function getAppNav(): NavItem[] {
+    const routes: CustomRoute[] = appRoutes;
     return routes.reduce((acc: NavItem[], route: CustomRoute) => {
         if (route.data) {
             acc.push({
