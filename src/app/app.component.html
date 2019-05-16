@@ -32,7 +32,22 @@
             </ng-container>
 
             <!-- Settings Menu -->
-            <button mat-icon-button [matMenuTriggerFor]="settingsMenu">
+
+            <div class="d-md-inline-block d-none">
+                <button mat-icon-button (click)="switchLayout()">
+                    <mat-icon>web_asset</mat-icon>
+                </button>
+                <button mat-icon-button (click)="switchTheme()">
+                    <mat-icon>color_lens</mat-icon>
+                </button>
+            </div>
+
+            <!-- Responsive Settings Menu -->
+            <button
+                class="d-inline-block d-md-none"
+                mat-icon-button
+                [matMenuTriggerFor]="settingsMenu"
+            >
                 <mat-icon>settings</mat-icon>
                 <mat-menu #settingsMenu="matMenu">
                     <ng-template matMenuContent>
@@ -74,9 +89,7 @@
 
         <!-- Main Content -->
         <mat-sidenav-content role="main">
-            <div class="m-3">
-                <router-outlet></router-outlet>
-            </div>
+            <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
 
