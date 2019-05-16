@@ -1,7 +1,26 @@
-<p>
-    home works!
-</p>
+<div class="home-container">
+    <mat-card>
+        <mat-card-title>Introduction</mat-card-title>
+        <mat-card-content>
+            This project is an Angular starter pack with a robust set of
+            configurations and features integrating Angular Material and
+            Bootstrap to enable quick scaffolding of the project.
+        </mat-card-content>
+    </mat-card>
 
-<div class="bg-default">
-    this is a test div
+    <mat-card>
+        <mat-card-title>Features</mat-card-title>
+        <div *ngFor="let feature of features" class="my-4">
+            <mat-card-subtitle>{{ feature.title }}</mat-card-subtitle>
+            <mat-card-content>{{ feature.description }}</mat-card-content>
+        </div>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-title>Development</mat-card-title>
+        <div *ngFor="let feature of devFeatures" class="my-4">
+            <mat-card-subtitle>{{ feature.title }}</mat-card-subtitle>
+            <mat-card-content>{{ feature.description }}</mat-card-content>
+        </div>
+    </mat-card>
 </div>
