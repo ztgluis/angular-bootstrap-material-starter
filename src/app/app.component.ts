@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 import { getAppNav } from '@app/app.routing';
 import { SettingsService } from '@app/shared/services/settings.service';
 @Component({
@@ -7,7 +9,18 @@ import { SettingsService } from '@app/shared/services/settings.service';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    constructor(private settingsService: SettingsService) {}
+    constructor(
+        private settingsService: SettingsService,
+        private matIconRegistry: MatIconRegistry,
+        private domSanitizer: DomSanitizer
+    ) {
+        this.matIconRegistry.addSvgIcon(
+            'github',
+            this.domSanitizer.bypassSecurityTrustResourceUrl(
+                '../assets/img/github-circle-white-transparent.svg'
+            )
+        );
+    }
 
     sidenavLayout = this.settingsService.getLayout();
 

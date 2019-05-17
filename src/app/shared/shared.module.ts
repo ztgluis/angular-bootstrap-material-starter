@@ -1,66 +1,64 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
-    MatInputModule,
-    MatButtonModule,
     MatBadgeModule,
-    MatIconModule,
-    MatTabsModule,
+    MatButtonModule,
     MatCardModule,
     MatChipsModule,
     MatExpansionModule,
     MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
     MatListModule,
     MatMenuModule,
     MatProgressSpinnerModule,
     MatRadioModule,
-    MatSnackBarModule,
     MatSelectModule,
     MatSidenavModule,
     MatSliderModule,
+    MatSnackBarModule,
     MatStepperModule,
     MatTableModule,
+    MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule,
-    MatGridListModule
+    MatTooltipModule
 } from '@angular/material';
 
 export const SharedModules = [
     CommonModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule,
     MatBadgeModule,
-    MatIconModule,
-    MatTabsModule,
+    MatButtonModule,
     MatCardModule,
     MatChipsModule,
     MatExpansionModule,
     MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
     MatListModule,
     MatMenuModule,
     MatProgressSpinnerModule,
     MatRadioModule,
-    MatSnackBarModule,
     MatSelectModule,
     MatSidenavModule,
     MatSliderModule,
+    MatSnackBarModule,
     MatStepperModule,
     MatTableModule,
+    MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule,
-    MatGridListModule
+    MatTooltipModule
 ];
 
 @NgModule({
-    imports: [
-        ...SharedModules
-    ],
+    imports: [...SharedModules],
     declarations: [],
-    exports: [
-        ...SharedModules
-    ]
+    exports: [...SharedModules]
 })
-export class SharedModule { }
+export class SharedModule {}
