@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'ngbm-playground',
@@ -7,13 +6,9 @@ import { FormControl, FormGroup } from '@angular/forms';
     styleUrls: ['./playground.component.scss']
 })
 export class PlaygroundComponent {
-    group = new FormGroup({
-        fontSize: new FormControl('')
-    });
-
     matColors = ['primary', 'accent', 'warn'];
 
-    twbsColors = [
+    bootstrapColors = [
         'primary',
         'secondary',
         'info',

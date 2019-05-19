@@ -1,171 +1,269 @@
-<div class="row">
-    <div class="col-4" *ngFor="let color of matColors">
-        <mat-toolbar
-            [color]="color"
-            (click)="sidenav.toggle(); selectedColor = color"
-        >
-            {{ color | uppercase }}
-        </mat-toolbar>
-
-        <form [formGroup]="group">
-            <mat-form-field [color]="color">
-                <input
-                    matInput
-                    type="number"
-                    placeholder="Font size (px)"
-                    formControlName="fontSize"
-                    min="10"
-                />
-                <mat-error>Min size: 10px</mat-error>
-            </mat-form-field>
-        </form>
-
-        <div class="m-3">
-            <button mat-button [color]="color">Button</button>
-            <button mat-raised-button [color]="color">
-                RaisedButton
+<div class="page-container">
+    <mat-card>
+        <mat-card-title>Buttons Testing Ground</mat-card-title>
+        <mat-card-content>
+            <p>
+                Testing implementation of Material components with Bootstrap
+                utility/helper classes.
+            </p>
+            <p>
+                This section includes code snippets and examples of using
+                regular Angular Material buttons as well as examples replacing
+                the styling of these buttons by using Bootstrap utility classes.
+            </p>
+            <p>
+                Material Colors:
+                <span
+                    *ngFor="let color of matColors"
+                    [ngClass]="'text-' + color"
+                >
+                    {{ color }}
+                </span>
+            </p>
+            <p>
+                Bootstrap Colors:
+                <span
+                    *ngFor="let color of bootstrapColors"
+                    [ngClass]="'text-' + color"
+                >
+                    {{ color }}
+                </span>
+            </p>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-title>Basic Buttons</mat-card-title>
+        <mat-card-subtitle>
+            Angular Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>&lt;button mat-button [color]="color"&gt;&lt;/button&gt;</pre>
+            <button mat-button *ngFor="let color of matColors" [color]="color">
+                {{ color }} button
             </button>
-            <button mat-flat-button [color]="color">FlatButton</button>
-            <button mat-stroked-button [color]="color">
-                StrokedButton
-            </button>
-            <button mat-icon-button [color]="color">
-                <mat-icon>check</mat-icon>
-            </button>
-            <button mat-fab [color]="color">
-                <mat-icon>check</mat-icon>
-            </button>
-            <button mat-mini-fab [color]="color">
-                <mat-icon>check</mat-icon>
-            </button>
-        </div>
-        <div class="m-3">
-            <mat-tab-group [color]="color">
-                <mat-tab label="First">Content 1</mat-tab>
-                <mat-tab label="Second">Content 2</mat-tab>
-            </mat-tab-group>
-            <mat-tab-group
-                *ngFor="let color2 of matColors"
-                [color]="color2"
-                [backgroundColor]="color"
+        </mat-card-content>
+        <mat-card-subtitle>
+            Bootstrap-enhanced Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-button [ngClass]="'text-' + color"&gt;&lt;/button&gt;</pre
             >
-                <mat-tab label="First">Content 1</mat-tab>
-                <mat-tab label="Second">Content 2</mat-tab>
-            </mat-tab-group>
-        </div>
-        <div class="m-3">
-            <span
-                class="mx-3"
-                matBadge="4"
-                matBadgeOverlap="false"
-                [matBadgeColor]="color"
-            >
-                Text
-            </span>
             <button
                 mat-button
-                class="mx-3"
-                [color]="color"
-                matBadge="8"
-                [matBadgeColor]="color"
+                *ngFor="let color of bootstrapColors"
+                [ngClass]="'text-' + color"
             >
-                Button
+                {{ color }} button
             </button>
-            <mat-icon
-                class="mx-3"
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-title>Raised Buttons</mat-card-title>
+        <mat-card-subtitle>
+            Angular Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-raised-button [color]="color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-raised-button
+                *ngFor="let color of matColors"
                 [color]="color"
-                matBadge="15"
-                matBadgeOverlap="false"
-                [matBadgeColor]="color"
             >
-                home
-            </mat-icon>
-        </div>
-
-        <mat-chip-list>
-            <mat-chip [color]="color" selected>Chip</mat-chip>
-            <mat-chip>Chip</mat-chip>
-        </mat-chip-list>
-
-        <mat-spinner [color]="color"></mat-spinner>
-    </div>
-</div>
-
-<div>
-    <p>Material -Bootstrap</p>
-    <button
-        mat-raised-button
-        *ngFor="let color of twbsColors"
-        [ngClass]="'bg-' + color"
-    >
-        Hi
-    </button>
-
-    <div class="row">
-        <div class="col-2" *ngFor="let color of twbsColors">
-            <mat-toolbar
-                class="bg-{{ color }}"
-                (click)="sidenav.toggle(); selectedColor = color"
+                {{ color }} button
+            </button>
+        </mat-card-content>
+        <mat-card-subtitle>
+            Bootstrap Enhanced + Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+    &lt;button mat-raised-button [ngClass]="'bg-' + color"&gt;&lt;/button&gt;</pre
             >
-                {{ color | uppercase }}
-            </mat-toolbar>
+            <button
+                mat-raised-button
+                *ngFor="let color of bootstrapColors"
+                [ngClass]="'bg-' + color"
+            >
+                {{ color }} button
+            </button>
+        </mat-card-content>
+    </mat-card>
 
-            <!-- <form [formGroup]="group">
-                            <mat-form-field [ngClass]="'text-' + color">
-                                <input matInput type="number" placeholder="Font size (px)" formControlName="fontSize" min="10">
-                                <mat-error>Min size: 10px</mat-error>
-                            </mat-form-field>
-                        </form> -->
+    <mat-card>
+        <mat-card-title>Stroked Buttons</mat-card-title>
+        <mat-card-subtitle>
+            Angular Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-stroked-button [color]="color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-stroked-button
+                *ngFor="let color of matColors"
+                [color]="color"
+            >
+                {{ color }} button
+            </button>
+        </mat-card-content>
+        <mat-card-subtitle>
+            Bootstrap-enhanced Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-stroked-button [ngClass]="'border text-' + color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-stroked-button
+                *ngFor="let color of bootstrapColors"
+                [ngClass]="'border text-' + color"
+            >
+                {{ color }} button
+            </button>
+        </mat-card-content>
+    </mat-card>
 
-            <div class="m-3">
-                <button mat-button [ngClass]="'text-' + color">
-                    Button
-                </button>
-                <button mat-raised-button [ngClass]="'bg-' + color">
-                    RaisedButton
-                </button>
-                <button mat-flat-button [ngClass]="'bg-' + color">
-                    FlatButton
-                </button>
-                <button mat-stroked-button [ngClass]="'text-' + color">
-                    StrokedButton
-                </button>
-                <button mat-icon-button [ngClass]="'text-' + color">
-                    <mat-icon>check</mat-icon>
-                </button>
-                <button mat-fab [ngClass]="'bg-' + color">
-                    <mat-icon>check</mat-icon>
-                </button>
-                <button mat-mini-fab [ngClass]="'bg-' + color">
-                    <mat-icon>check</mat-icon>
-                </button>
-            </div>
-            <!-- <div class="m-3">
-                        <mat-tab-group [ngClass]="'text-' + color">
-                            <mat-tab label="First"> Content 1 </mat-tab>
-                            <mat-tab label="Second"> Content 2 </mat-tab>
-                        </mat-tab-group>
-                        <mat-tab-group *ngFor="let color2 of twbsColors" [ngClass]="'text-' + color2" [ngClass]="'bg-' + color">
-                                <mat-tab label="First"> Content 1 </mat-tab>
-                                <mat-tab label="Second"> Content 2 </mat-tab>
-                            </mat-tab-group>
-                    </div> -->
-            <!-- <div class="m-3">
-                            <span class="mx-3" matBadge="4" matBadgeOverlap="false" [matBadgeColor]="color">Text</span>
-                            <button mat-button class="mx-3" [color]="color" matBadge="8" [matBadgeColor]="color">
-                                Button
-                            </button>
-                            <mat-icon class="mx-3" [color]="color" matBadge="15" matBadgeOverlap="false" [matBadgeColor]="color">home</mat-icon>
-                        </div> -->
+    <mat-card>
+        <mat-card-title>Flat Buttons</mat-card-title>
+        <mat-card-subtitle>
+            Angular Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-flat-button [color]="color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-flat-button
+                *ngFor="let color of matColors"
+                [color]="color"
+            >
+                {{ color }} button
+            </button>
+        </mat-card-content>
+        <mat-card-subtitle>
+            Bootstrap-enhanced Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-flat-button [ngClass]="'bg-' + color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-flat-button
+                *ngFor="let color of bootstrapColors"
+                [ngClass]="'bg-' + color"
+            >
+                {{ color }} button
+            </button>
+        </mat-card-content>
+    </mat-card>
 
-            <mat-chip-list>
-                <mat-chip [ngClass]="'bg-' + color" selected>
-                    Chip
-                </mat-chip>
-                <mat-chip>Chip</mat-chip>
-            </mat-chip-list>
+    <mat-card>
+        <mat-card-title>Icon Buttons</mat-card-title>
+        <mat-card-subtitle>
+            Angular Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-icon-button [color]="color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-icon-button
+                *ngFor="let color of matColors"
+                [color]="color"
+            >
+                <mat-icon>favorite</mat-icon>
+            </button>
+        </mat-card-content>
+        <mat-card-subtitle>
+            Bootstrap-enhanced Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-icon-button [ngClass]="'text-' + color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-icon-button
+                *ngFor="let color of bootstrapColors"
+                [ngClass]="'text-' + color"
+            >
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <pre>
+&lt;button mat-icon-button [ngClass]="'bg-' + color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-icon-button
+                *ngFor="let color of bootstrapColors"
+                [ngClass]="'bg-' + color"
+            >
+                <mat-icon>favorite</mat-icon>
+            </button>
+        </mat-card-content>
+    </mat-card>
 
-            <!-- <mat-spinner [ngClass]="'text-' + color"></mat-spinner> -->
-        </div>
-    </div>
+    <mat-card>
+        <mat-card-title>Fab Buttons</mat-card-title>
+        <mat-card-subtitle>
+            Angular Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>&lt;button mat-fab [color]="color"&gt;&lt;/button&gt;</pre>
+            <button mat-fab *ngFor="let color of matColors" [color]="color">
+                {{ color }}
+            </button>
+        </mat-card-content>
+        <mat-card-subtitle>
+            Bootstrap-enhanced Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-fab [ngClass]="'bg-' + color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-fab
+                *ngFor="let color of bootstrapColors"
+                [ngClass]="'bg-' + color"
+            >
+                {{ color }}
+            </button>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-title>Mini Fab Buttons</mat-card-title>
+        <mat-card-subtitle>
+            Angular Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-mini-fab [color]="color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-mini-fab
+                *ngFor="let color of matColors"
+                [color]="color"
+            >
+                {{ color }}
+            </button>
+        </mat-card-content>
+        <mat-card-subtitle>
+            Bootstrap-enhanced Material Buttons
+        </mat-card-subtitle>
+        <mat-card-content>
+            <pre>
+&lt;button mat-mini-fab [ngClass]="'bg-' + color"&gt;&lt;/button&gt;</pre
+            >
+            <button
+                mat-mini-fab
+                *ngFor="let color of bootstrapColors"
+                [ngClass]="'bg-' + color"
+            >
+                {{ color }}
+            </button>
+        </mat-card-content>
+    </mat-card>
 </div>
