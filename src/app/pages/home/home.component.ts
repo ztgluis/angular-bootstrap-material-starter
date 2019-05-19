@@ -8,22 +8,34 @@ import { Component } from '@angular/core';
 export class HomeComponent {
     features = [
         {
-            name: 'angular',
             title: 'Angular',
             description:
                 'Built with Angular as the web application framework for its ease of use.'
         },
         {
-            name: 'material',
             title: 'Angular Material',
             description:
                 'The Angular Material component library is used as the primary library for UI components in this project for the high quality and extensive documentation available.'
         },
         {
-            name: 'bootstrap',
             title: 'Bootstrap',
             description:
                 'Bootstrap is included to be used primarly for its utility classes which enable easily customizing the UI through CSS classes.'
+        },
+        {
+            title: 'Theming',
+            description:
+                'This project is themable, a regular and a dark themes are included. Adding more themes is as easy as adding one more SCSS file with the desired palette of colors'
+        },
+        {
+            title: 'Layout',
+            description:
+                'Interchangeable navigation layout, allows for the main navigation to be switched from a sidenav to top nav'
+        },
+        {
+            title: 'Responsive',
+            description:
+                'Application adapts to the size of the viewport to optimize user experience'
         }
     ];
 

@@ -1,6 +1,6 @@
 <div class="page-container">
     <mat-card>
-        <mat-card-title>Buttons Testing Ground</mat-card-title>
+        <mat-card-title>Testing Grounds</mat-card-title>
         <mat-card-content>
             <p>
                 Testing implementation of Material components with Bootstrap
@@ -8,15 +8,12 @@
             </p>
             <p>
                 This section includes code snippets and examples of using
-                regular Angular Material buttons as well as examples replacing
-                the styling of these buttons by using Bootstrap utility classes.
+                regular Angular Material components as well as examples
+                replacing the styling by using Bootstrap utility classes.
             </p>
             <p>
                 Material Colors:
-                <span
-                    *ngFor="let color of matColors"
-                    [ngClass]="'text-' + color"
-                >
+                <span *ngFor="let color of matColors" [ngClass]="'bg-' + color">
                     {{ color }}
                 </span>
             </p>
@@ -24,7 +21,7 @@
                 Bootstrap Colors:
                 <span
                     *ngFor="let color of bootstrapColors"
-                    [ngClass]="'text-' + color"
+                    [ngClass]="'bg-' + color"
                 >
                     {{ color }}
                 </span>
