@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
     MatBadgeModule,
@@ -30,6 +31,7 @@ import {
 export const SharedModules = [
     CommonModule,
     HttpClientModule,
+    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     MatBadgeModule,
@@ -57,8 +59,7 @@ export const SharedModules = [
 ];
 
 @NgModule({
-    imports: [...SharedModules],
-    declarations: [],
-    exports: [...SharedModules]
+    imports: SharedModules,
+    exports: SharedModules
 })
 export class SharedModule {}

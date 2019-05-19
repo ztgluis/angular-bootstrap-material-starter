@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { getAppNav } from '@app/app.routing';
 import { SettingsService } from '@app/shared/services/settings.service';
+import { Observable } from 'rxjs';
+
 @Component({
     selector: 'ngbm-root',
     templateUrl: './app.component.html',
@@ -12,8 +15,10 @@ export class AppComponent {
     constructor(
         private settingsService: SettingsService,
         private matIconRegistry: MatIconRegistry,
-        private domSanitizer: DomSanitizer
+        private domSanitizer: DomSanitizer,
+        public mediaObserver: MediaObserver
     ) {
+        this.mediaObserver$ = mediaObserver.asObservable();
         this.matIconRegistry.addSvgIcon(
             'github',
             this.domSanitizer.bypassSecurityTrustResourceUrl(
@@ -21,6 +26,8 @@ export class AppComponent {
             )
         );
     }
+
+    mediaObserver$: Observable<MediaChange[]>;
 
     sidenavLayout = this.settingsService.getLayout();
 
