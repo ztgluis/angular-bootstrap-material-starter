@@ -28,7 +28,6 @@ export class AppComponent {
                 }/assets/img/github-circle-white-transparent.svg`
             )
         );
-        console.log(this.baseHref);
     }
 
     mediaObserver$: Observable<

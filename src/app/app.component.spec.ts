@@ -1,3 +1,4 @@
+import { APP_BASE_HREF } from '@angular/common';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatMenuModule } from '@angular/material';
@@ -20,7 +21,13 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             imports: [RouterTestingModule, MatMenuModule],
             declarations: [AppComponent],
-            providers: [{ provide: SettingsService, useValue: spy }],
+            providers: [
+                { provide: SettingsService, useValue: spy },
+                {
+                    provide: APP_BASE_HREF,
+                    useValue: '/'
+                }
+            ],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 
