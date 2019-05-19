@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -14,20 +15,25 @@ import { Observable } from 'rxjs';
 export class AppComponent {
     constructor(
         private settingsService: SettingsService,
-        private matIconRegistry: MatIconRegistry,
-        private domSanitizer: DomSanitizer,
-        public mediaObserver: MediaObserver
+        matIconRegistry: MatIconRegistry,
+        domSanitizer: DomSanitizer,
+        public mediaObserver: MediaObserver,
+        @Inject(APP_BASE_HREF) private baseHref: string
     ) {
-        this.mediaObserver$ = mediaObserver.asObservable();
-        this.matIconRegistry.addSvgIcon(
+        matIconRegistry.addSvgIcon(
             'github',
-            this.domSanitizer.bypassSecurityTrustResourceUrl(
-                '../assets/img/github-circle-white-transparent.svg'
+            domSanitizer.bypassSecurityTrustResourceUrl(
+                `../${
+                    this.baseHref
+                }/assets/img/github-circle-white-transparent.svg`
             )
         );
+        console.log(this.baseHref);
     }
 
-    mediaObserver$: Observable<MediaChange[]>;
+    mediaObserver$: Observable<
+        MediaChange[]
+    > = this.mediaObserver.asObservable();
 
     sidenavLayout = this.settingsService.getLayout();
 
