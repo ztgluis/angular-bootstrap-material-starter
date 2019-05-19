@@ -6,7 +6,7 @@ import { AppComponent } from '@app/app.component';
 import { RoutingModule } from '@app/app.routing';
 import { SharedModule } from '@app/shared';
 
-function getBaseHref(platformLocation: PlatformLocation): string {
+export function getBaseHref(platformLocation: PlatformLocation): string {
     return platformLocation.getBaseHrefFromDOM();
 }
 
