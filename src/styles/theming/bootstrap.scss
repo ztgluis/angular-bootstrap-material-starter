@@ -2,8 +2,6 @@
 $theme-primary: map-get($theme, primary);
 $theme-accent: map-get($theme, accent);
 $theme-warn: map-get($theme, warn);
-$theme-foreground: map-get($theme, foreground);
-$theme-background: map-get($theme, background);
 
 /* Map specific colors to application variables */
 $ngbm-primary: mat-color($primary-palette);
@@ -13,8 +11,6 @@ $ngbm-success: mat-color($success-palette);
 $ngbm-warn: mat-color($warn-palette);
 $ngbm-light: mat-color($light-palette);
 $ngbm-dark: mat-color($neutral-palette);
-$ngbm-foreground: mat-color($theme-foreground, text);
-$ngbm-background: mat-color($theme-background, card);
 
 /**
  * Map used by bootstrap to set theming colors
@@ -29,9 +25,7 @@ $theme-colors: (
     danger: $ngbm-warn,
     warn: $ngbm-warn,
     light: $ngbm-light,
-    dark: $ngbm-dark,
-    foreground: $ngbm-foreground,
-    background: $ngbm-background
+    dark: $ngbm-dark
 );
 
 /**
@@ -99,16 +93,4 @@ $theme-palettes: (
             color: mat-color($palette, 'default-contrast') !important;
         }
     }
-}
-
-/**
- * Allows to set default themable text
- */
-.text-default {
-    color: $ngbm-foreground !important;
-}
-
-.bg-default {
-    background: $ngbm-background !important;
-    color: $ngbm-foreground !important;
 }
