@@ -2,12 +2,23 @@
     <!-- Header -->
     <mat-toolbar color="primary">
         <!-- Responsive Title -->
-        <span *ngIf="mediaObserver.isActive('gt-xs')">
-            Angular Bootstrap Material Starter
-        </span>
-        <span *ngIf="mediaObserver.isActive('xs')">
-            NGBM
-        </span>
+        <div
+            *ngIf="
+                mediaObserver.isActive('gt-xs');
+                then title;
+                else responsiveTitle
+            "
+        ></div>
+        <ng-template #title>
+            <span>
+                Angular Bootstrap Material Starter
+            </span>
+        </ng-template>
+        <ng-template #responsiveTitle>
+            <span>
+                NGBM
+            </span>
+        </ng-template>
 
         <!-- Toolbar Buttons -->
         <div class="ml-auto">
@@ -22,50 +33,63 @@
                     routerLinkActive="bg-accent"
                 >
                     <!-- Responsive Navigation Items -->
-                    <span *ngIf="mediaObserver.isActive('gt-sm')">
-                        {{ link.name }}
-                    </span>
-                    <mat-icon
-                        matListIcon
-                        *ngIf="mediaObserver.isActive('lt-md')"
-                    >
-                        {{ link.icon }}
-                    </mat-icon>
+                    <div
+                        *ngIf="
+                            mediaObserver.isActive('gt-sm');
+                            then navItems;
+                            else responsiveNavItems
+                        "
+                    ></div>
+                    <ng-template #navItems>
+                        <span>{{ link.name }}</span>
+                    </ng-template>
+                    <ng-template #responsiveNavItems>
+                        <mat-icon>{{ link.icon }}</mat-icon>
+                    </ng-template>
                 </button>
             </ng-container>
 
-            <!-- Settings Menu -->
-
-            <div *ngIf="mediaObserver.isActive('gt-sm')" class="d-inline-block">
-                <button mat-icon-button (click)="switchLayout()">
-                    <mat-icon>web_asset</mat-icon>
-                </button>
-                <button mat-icon-button (click)="switchTheme()">
-                    <mat-icon>color_lens</mat-icon>
-                </button>
-            </div>
-
             <!-- Responsive Settings Menu -->
-            <button
-                *ngIf="mediaObserver.isActive('lt-md')"
-                class="d-inline-block"
-                mat-icon-button
-                [matMenuTriggerFor]="settingsMenu"
-            >
-                <mat-icon>settings</mat-icon>
-                <mat-menu #settingsMenu="matMenu">
-                    <ng-template matMenuContent>
-                        <button mat-menu-item (click)="switchLayout()">
-                            <mat-icon>web_asset</mat-icon>
-                            <span>Layout</span>
-                        </button>
-                        <button mat-menu-item (click)="switchTheme()">
-                            <mat-icon>color_lens</mat-icon>
-                            <span>Theme</span>
-                        </button>
-                    </ng-template>
-                </mat-menu>
-            </button>
+            <div
+                *ngIf="
+                    mediaObserver.isActive('gt-sm');
+                    then settingsMenu;
+                    else responsiveSettingsMenu
+                "
+            ></div>
+            <ng-template #settingsMenu>
+                <div class="d-inline-block">
+                    <button mat-icon-button (click)="switchLayout()">
+                        <mat-icon>web_asset</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="switchTheme()">
+                        <mat-icon>color_lens</mat-icon>
+                    </button>
+                </div>
+            </ng-template>
+            <ng-template #responsiveSettingsMenu>
+                <button
+                    class="d-inline-block"
+                    mat-icon-button
+                    [matMenuTriggerFor]="settingsMenu"
+                >
+                    <mat-icon>settings</mat-icon>
+                    <mat-menu #settingsMenu="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item (click)="switchLayout()">
+                                <mat-icon>web_asset</mat-icon>
+                                <span>Layout</span>
+                            </button>
+                            <button mat-menu-item (click)="switchTheme()">
+                                <mat-icon>color_lens</mat-icon>
+                                <span>Theme</span>
+                            </button>
+                        </ng-template>
+                    </mat-menu>
+                </button>
+            </ng-template>
+
+            <!-- Github link -->
             <a
                 mat-icon-button
                 href="https://github.com/ztgluis/angular-bootstrap-material-starter"
