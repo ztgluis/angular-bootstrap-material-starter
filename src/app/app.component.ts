@@ -1,7 +1,7 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { getAppNav } from '@app/app.routing';
 import { SettingsService } from '@app/shared/services/settings.service';

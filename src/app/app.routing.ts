@@ -14,7 +14,8 @@ interface CustomRoute extends Route {
 export const appRoutes: CustomRoute[] = [
     {
         path: '',
-        loadChildren: './pages/home/home.module#HomeModule',
+        loadChildren: () =>
+            import('./pages/home/home.module').then(m => m.HomeModule),
         data: {
             title: 'Home Page',
             name: 'Home',
@@ -23,7 +24,10 @@ export const appRoutes: CustomRoute[] = [
     },
     {
         path: 'playground',
-        loadChildren: './pages/playground/playground.module#PlaygroundModule',
+        loadChildren: () =>
+            import('./pages/playground/playground.module').then(
+                m => m.PlaygroundModule
+            ),
         data: {
             title: 'Playground',
             name: 'Playground',
