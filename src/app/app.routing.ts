@@ -14,6 +14,11 @@ interface CustomRoute extends Route {
 export const appRoutes: CustomRoute[] = [
     {
         path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
         loadChildren: () =>
             import('./pages/home/home.module').then(m => m.HomeModule),
         data: {
@@ -32,6 +37,18 @@ export const appRoutes: CustomRoute[] = [
             title: 'Playground',
             name: 'Playground',
             icon: 'local_play'
+        }
+    },
+    {
+        path: 'api-testing',
+        loadChildren: () =>
+            import('./pages/api-testing/api-testing.module').then(
+                m => m.ApiTestingModule
+            ),
+        data: {
+            title: 'API Testing',
+            name: 'API Testing',
+            icon: 'settings_input_antenna'
         }
     }
 ];

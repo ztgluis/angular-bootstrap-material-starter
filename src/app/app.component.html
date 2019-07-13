@@ -112,7 +112,6 @@
                 <mat-list-item
                     *ngFor="let link of navLinks"
                     [routerLink]="link.path"
-                    [routerLinkActiveOptions]="{ exact: true }"
                     routerLinkActive="bg-accent"
                 >
                     <mat-icon matListIcon>{{ link.icon }}</mat-icon>

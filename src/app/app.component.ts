@@ -1,5 +1,5 @@
 import { APP_BASE_HREF } from '@angular/common';
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
 @Component({
     selector: 'ngbm-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
     constructor(
@@ -23,9 +24,7 @@ export class AppComponent {
         matIconRegistry.addSvgIcon(
             'github',
             domSanitizer.bypassSecurityTrustResourceUrl(
-                `../${
-                    this.baseHref
-                }/assets/img/github-circle-white-transparent.svg`
+                `../${this.baseHref}/assets/img/github-circle-white-transparent.svg`
             )
         );
     }
