@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { HttpService } from './http.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class StorageService {
+    constructor(private httpService: HttpService) {}
+
     get(key: string): any {
         const value = localStorage.getItem(key);
         try {
@@ -25,5 +30,13 @@ export class StorageService {
 
     clear() {
         localStorage.clear();
+    }
+
+    getOrCache(url): Observable<any> {
+        const cache = this.get(url);
+        if (cache) {
+            return of(cache);
+        }
+        return this.httpService.get(url).pipe(tap(data => this.set(url, data)));
     }
 }
