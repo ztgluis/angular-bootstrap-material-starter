@@ -1,12 +1,18 @@
 import { TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+import { HttpService } from './http.service';
 import { StorageService } from './storage.service';
-
 describe('StorageService', () => {
     let service: StorageService;
+    let httpServiceSpy: jasmine.SpyObj<HttpService>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({});
+        const spy = jasmine.createSpyObj('HttpService', ['get']);
+        TestBed.configureTestingModule({
+            providers: [{ provide: HttpService, useValue: spy }]
+        });
         service = TestBed.get(StorageService);
+        httpServiceSpy = TestBed.get(HttpService);
     });
 
     it('should be created', () => {
@@ -73,6 +79,44 @@ describe('StorageService', () => {
             service.clear();
             expect(service.get('someKey')).toBeNull();
             expect(service.get('someOtherKey')).toBeNull();
+        });
+    });
+    describe('#getOrCache', () => {
+        it('should make a request if no cached valued exists', () => {
+            const testUrl = 'https://swapi.co/api/';
+            const testData = {
+                films: 'https://swapi.co/api/films/',
+                people: 'https://swapi.co/api/people/',
+                planets: 'https://swapi.co/api/planets/',
+                species: 'https://swapi.co/api/species/',
+                starships: 'https://swapi.co/api/starships/',
+                vehicles: 'https://swapi.co/api/vehicles/'
+            };
+
+            service.remove(testUrl);
+            const getSpy = httpServiceSpy.get.and.returnValue(of(testData));
+            service.getOrCache(testUrl).subscribe(data => {
+                expect(data).toEqual(testData);
+                expect(getSpy).toHaveBeenCalledTimes(1);
+                expect(getSpy).toHaveBeenCalledWith(testUrl);
+            });
+        });
+
+        it('should return a cached value if one exists', () => {
+            const testUrl = 'https://swapi.co/api/';
+            const testData = {
+                films: 'https://swapi.co/api/films/',
+                people: 'https://swapi.co/api/people/',
+                planets: 'https://swapi.co/api/planets/',
+                species: 'https://swapi.co/api/species/',
+                starships: 'https://swapi.co/api/starships/',
+                vehicles: 'https://swapi.co/api/vehicles/'
+            };
+            service.set(testUrl, testData);
+            service
+                .getOrCache(testUrl)
+                .subscribe(data => expect(data).toEqual(testData));
+            expect(httpServiceSpy.get).toHaveBeenCalledTimes(0);
         });
     });
 });
