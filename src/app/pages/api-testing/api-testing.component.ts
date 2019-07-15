@@ -13,6 +13,4 @@ export class ApiTestingComponent {
             label: 'SWAPI'
         }
     ];
-
-    activeLink = this.navLinks[0];
 }
