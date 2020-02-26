@@ -10,13 +10,14 @@
             "prefix": "ngbm",
             "schematics": {
                 "@schematics/angular:component": {
-                    "styleext": "scss"
+                    "style": "scss"
                 }
             },
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
+                        "aot": true,
                         "outputPath": "dist",
                         "index": "src/index.html",
                         "main": "src/main.ts",
@@ -32,8 +33,8 @@
                                 "bundleName": "default-theme"
                             },
                             {
+                                "inject": false,
                                 "input": "src/styles/theming/dark-theme.scss",
-                                "lazy": true,
                                 "bundleName": "dark-theme"
                             }
                         ],
@@ -41,6 +42,12 @@
                     },
                     "configurations": {
                         "production": {
+                            "budgets": [
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb"
+                                }
+                            ],
                             "fileReplacements": [
                                 {
                                     "replace": "src/environments/environment.ts",
