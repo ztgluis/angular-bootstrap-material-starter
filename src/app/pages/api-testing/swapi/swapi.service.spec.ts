@@ -23,14 +23,14 @@ describe('SwapiService', () => {
 
     describe('#getTabs', () => {
         it('should get tabs data from base URL', () => {
-            const testUrl = 'https://swapi.co/api/';
+            const testUrl = 'https://swapi.dev/api/';
             const testData = {
-                films: 'https://swapi.co/api/films/',
-                people: 'https://swapi.co/api/people/',
-                planets: 'https://swapi.co/api/planets/',
-                species: 'https://swapi.co/api/species/',
-                starships: 'https://swapi.co/api/starships/',
-                vehicles: 'https://swapi.co/api/vehicles/'
+                films: `${testUrl}films/`,
+                people: `${testUrl}people/`,
+                planets: `${testUrl}planets/`,
+                species: `${testUrl}species/`,
+                starships: `${testUrl}starships/`,
+                vehicles: `${testUrl}vehicles/`
             };
             const getOrCacheSpy = storageServiceSpy.getOrCache.and.returnValue(
                 of(testData)
@@ -45,23 +45,23 @@ describe('SwapiService', () => {
 
     describe('#getData', () => {
         it('should get data from a given URL', () => {
-            const testUrl = 'https://swapi.co/api/films';
+            const testUrl = 'https://swapi.dev/api/films';
             const testData = {
-                characters: ['https://swapi.co/api/people/1/'],
+                characters: ['https://swapi.dev/api/people/1/'],
                 created: '2014-12-10T14:23:31.880000Z',
                 director: 'George Lucas',
                 edited: '2014-12-12T11:24:39.858000Z',
                 episode_id: 4,
                 opening_crawl:
                     "It is a period of civil war.\n\nRebel spaceships, striking\n\nfrom a hidden base, have won\n\ntheir first victory against\n\nthe evil Galactic Empire.\n\n\n\nDuring the battle, Rebel\n\nspies managed to steal secret\r\nplans to the Empire's\n\nultimate weapon, the DEATH\n\nSTAR, an armored space\n\nstation with enough power\n\nto destroy an entire planet.\n\n\n\nPursued by the Empire's\n\nsinister agents, Princess\n\nLeia races home aboard her\n\nstarship, custodian of the\n\nstolen plans that can save her\n\npeople and restore\n\nfreedom to the galaxy....",
-                planets: ['https://swapi.co/api/planets/1/'],
+                planets: ['https://swapi.dev/api/planets/1/'],
                 producer: 'Gary Kurtz, Rick McCallum',
                 release_date: '1977-05-25',
-                species: ['https://swapi.co/api/species/1/'],
-                starships: ['https://swapi.co/api/starships/2/'],
+                species: ['https://swapi.dev/api/species/1/'],
+                starships: ['https://swapi.dev/api/starships/2/'],
                 title: 'A New Hope',
-                url: 'https://swapi.co/api/films/1/',
-                vehicles: ['https://swapi.co/api/vehicles/4/']
+                url: 'https://swapi.dev/api/films/1/',
+                vehicles: ['https://swapi.dev/api/vehicles/4/']
             };
             const getOrCacheSpy = storageServiceSpy.getOrCache.and.returnValue(
                 of(testData)
