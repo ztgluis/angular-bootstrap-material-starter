@@ -3,7 +3,7 @@ import { StorageService } from '@app/shared/services/storage.service';
 import { Observable } from 'rxjs';
 
 const Swapi = {
-    host: 'https://swapi.co/api/'
+    host: 'https://swapi.dev/api/'
 };
 
 @Injectable({
